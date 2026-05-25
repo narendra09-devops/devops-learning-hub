@@ -16,3 +16,36 @@
 - [Top 20 Latest DevOps Interview Questions And Answers For 2020](https://www.softwaretestinghelp.com/devops-interview-questions)
 
 - [Top DevOps Interview Questions and Answers](https://hackr.io/blog/devops-interview-questions)
+
+# Interview Questions
+
+This folder contains interview questions, answers, troubleshooting scenarios, real-world problems, practical tasks, and technical discussions related to DevOps, Cloud Computing, Linux, Kubernetes, Networking, Security, CI/CD, Automation, and Infrastructure Engineering.
+
+These resources are useful for beginners, experienced professionals, certification preparation, technical discussions, and job interview preparation.
+
+---
+
+# 📂 Folder Structure
+
+```bash
+Interview-Questions/
+│
+├── Linux/
+├── Networking/
+├── Docker/
+├── Kubernetes/
+├── CI-CD/
+├── Jenkins/
+├── Git-GitHub/
+├── Terraform/
+├── Ansible/
+├── AWS/
+├── Azure/
+├── GCP/
+├── Security/
+├── Monitoring/
+├── Scripting/
+├── Servers/
+├── Scenario-Based/
+├── HR-Questions/
+└── README.md

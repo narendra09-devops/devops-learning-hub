@@ -128,3 +128,36 @@
 - Mercurial 
 
 ***************
+
+# DevOps
+
+This folder contains learning resources, tools, automation workflows, architecture diagrams, deployment strategies, CI/CD pipelines, monitoring solutions, infrastructure automation, interview questions, and hands-on projects related to DevOps practices and technologies.
+
+DevOps combines Development and Operations practices to improve software delivery speed, automation, collaboration, scalability, reliability, and infrastructure management.
+
+---
+
+# 📂 Folder Structure
+
+```bash
+DevOps/
+│
+├── Linux/
+├── Networking/
+├── Git-Version-Control/
+├── CI-CD/
+├── Docker/
+├── Kubernetes/
+├── Terraform/
+├── Ansible/
+├── Cloud/
+├── Monitoring/
+├── Security/
+├── GitOps/
+├── Scripting/
+├── Infrastructure-Provisioning/
+├── Architecture/
+├── Projects/
+├── Interview-Questions/
+├── CheatSheets/
+└── README.md

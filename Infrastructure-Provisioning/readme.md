@@ -30,3 +30,33 @@ Simply code your infrastructure configuration files with combination of differen
   
 - AWS CloudFormation
   - You can use AWS CloudFormation’s sample templates or create your own templates to describe the AWS resources, and any associated dependencies or runtime parameters, required to run your application. You don’t need to figure out the order in which AWS services need to be provisioned or the subtleties of how to make those dependencies work.
+
+  # Infrastructure Provisioning
+
+This folder contains learning resources, Infrastructure as Code (IaC) tools, automation scripts, cloud provisioning guides, configuration files, architecture diagrams, interview questions, and hands-on projects related to Infrastructure Provisioning in DevOps and Cloud environments.
+
+Infrastructure Provisioning is the process of automatically creating, configuring, and managing servers, cloud resources, networking, storage, Kubernetes clusters, and other infrastructure components using code and automation tools.
+
+---
+
+# 📂 Folder Structure
+
+```bash
+Infrastructure-Provisioning/
+│
+├── Terraform/
+├── CloudFormation/
+├── Ansible/
+├── Pulumi/
+├── Vagrant/
+├── Packer/
+├── Kubernetes-Provisioning/
+├── AWS-Provisioning/
+├── Azure-Provisioning/
+├── GCP-Provisioning/
+├── Networking/
+├── Automation/
+├── State-Management/
+├── Security/
+├── Modules/
+└── README.md

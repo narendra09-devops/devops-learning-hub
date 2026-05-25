@@ -24,6 +24,8 @@ This term is often used interchangeably with Continuous Deployment, but it can b
 
 Although it varies from team to team, Continuous deployment will refer to code that, when integrated, is also deployed automatically to live production of the app. The reason this and Continuous Delivery are often both included in CD is because typical CI/CD pipelines will include both and they both complement each other.
 
+
+
 ## Elements of a CI/CD pipeline
 
 RedHat provides the following definitions in their article [What is a CI/CD pipeline?](https://www.redhat.com/en/topics/devops/what-cicd-pipeline):
@@ -37,3 +39,86 @@ The steps that form a CI/CD pipeline are distinct subsets of tasks grouped into 
 * Validation and compliance - The steps to validate a build are determined by the needs of your organization. Image security scanning tools, like Clair, can ensure the quality of images by comparing them to known vulnerabilities (CVEs).
 
 <img src="https://www.redhat.com/cms/managed-files/styles/wysiwyg_full_width/s3/ci-cd-flow-desktop_0.png?itok=QgBYmjA2" style="display: block; margin: auto; width: 50%">
+
+
+---
+
+
+
+## 5. Add Topics Covered
+
+Add:
+
+```markdown
+## 🚀 Topics Covered
+
+- Continuous Integration
+- Continuous Deployment
+- Continuous Delivery
+- Pipeline Stages
+- Automated Testing
+- Build Automation
+- Deployment Automation
+- GitOps Workflows
+- CI/CD Security
+- Infrastructure Automation
+
+## 🛠 Popular CI/CD Tools
+
+- Jenkins
+- GitHub Actions
+- GitLab CI/CD
+- ArgoCD
+- CircleCI
+- Travis CI
+- Tekton
+- Bamboo
+
+## 📊 CI/CD Workflow Architecture
+
+
+## 🧪 Hands-on Projects
+
+- Jenkins Pipeline Setup
+- GitHub Actions Workflow
+- Docker Build Pipeline
+- Kubernetes Deployment Pipeline
+- Terraform Automation Pipeline
+- ArgoCD GitOps Deployment
+
+## 🎯 Interview Topics
+
+- Difference between CI and CD
+- Jenkins Pipeline Stages
+- Blue-Green Deployment
+- Canary Deployment
+- GitOps
+- Rollback Strategies
+- Pipeline Security
+
+# CI/CD Pipelines
+
+This folder contains learning resources, notes, workflows, architecture diagrams, hands-on projects, and interview questions related to Continuous Integration and Continuous Deployment (CI/CD).
+
+CI/CD automates software building, testing, integration, and deployment processes, enabling faster and more reliable software delivery.
+
+## 📂 Folder Structure
+
+```bash
+CI-CD-Pipelines/
+│
+├── Jenkins/
+├── GitHub-Actions/
+├── GitLab-CI/
+├── ArgoCD/
+├── CircleCI/
+├── TravisCI/
+├── Tekton/
+└── README.md
+
+---
+
+# 👨‍💻 Maintained By
+
+Narendra  
+DevOps Learning Hub
