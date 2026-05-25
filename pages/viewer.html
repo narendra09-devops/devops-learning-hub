@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>DevOps Learning Hub</title>
 
@@ -12,52 +12,62 @@
 
   <style>
 
+    *{
+      box-sizing:border-box;
+    }
+
     body{
       background:#f4f4f4;
       margin:0;
-      padding:40px;
-      font-family:Arial,sans-serif;
+      padding:40px 20px;
+      font-family:Arial, sans-serif;
     }
 
     .container{
       max-width:1000px;
       margin:auto;
-      background:#fff;
+      background:#ffffff;
       padding:40px;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
+      border-radius:12px;
+      box-shadow:0 0 15px rgba(0,0,0,0.1);
     }
 
-    h1,h2,h3{
+    h1,h2,h3,h4{
       color:#111827;
+      margin-top:25px;
     }
 
     p{
-      line-height:1.7;
+      line-height:1.8;
+      color:#333;
     }
 
     img{
       max-width:100%;
-      border-radius:8px;
+      border-radius:10px;
+      margin-top:15px;
+      margin-bottom:15px;
     }
 
     pre{
       background:#111827;
-      color:#fff;
+      color:#ffffff;
       padding:15px;
       overflow:auto;
       border-radius:8px;
     }
 
     code{
-      background:#eee;
+      background:#eeeeee;
       padding:2px 5px;
       border-radius:4px;
+      font-family:Consolas, monospace;
     }
 
     pre code{
       background:none;
       padding:0;
+      color:#ffffff;
     }
 
     a{
@@ -97,11 +107,22 @@
       margin:30px 0;
     }
 
+    ul li{
+      margin-bottom:8px;
+    }
+
     .error{
       background:#fff0f0;
-      color:red;
+      color:#dc2626;
       padding:20px;
       border-radius:8px;
+      border:1px solid #fecaca;
+    }
+
+    .loading{
+      text-align:center;
+      font-size:18px;
+      color:#555;
     }
 
   </style>
@@ -110,7 +131,7 @@
 <body>
 
   <div class="container" id="content">
-    Loading README...
+    <div class="loading">Loading README...</div>
   </div>
 
 <script>
@@ -121,29 +142,44 @@
 
   let file = params.get("file");
 
+  /*
+    NO FILE PROVIDED
+  */
+
   if (!file) {
 
     content.innerHTML = `
       <div class="error">
         <h2>No README File Specified</h2>
+        <p>Please provide a valid README.md file path.</p>
       </div>
     `;
 
   } else {
 
     /*
-      FIX FOR GITHUB PAGES
+      FIX PATH ISSUES
     */
 
-    file = decodeURIComponent(file);
+    file = decodeURIComponent(file).trim();
 
-    // Remove ../ from path
+    // Remove ../ from beginning
     file = file.replace(/^(\.\.\/)+/, "");
 
-    // Add repo base path
+    // Fix lowercase readme
+    file = file.replace(/readme\.md$/i, "README.md");
+
+    /*
+      FINAL GITHUB PAGES PATH
+    */
+
     const finalPath = "/" + "devops-learning-hub/" + file;
 
-    console.log("Loading:", finalPath);
+    console.log("Loading File:", finalPath);
+
+    /*
+      FETCH README
+    */
 
     fetch(finalPath)
 
@@ -159,6 +195,17 @@
 
       .then(markdown => {
 
+        if (!markdown.trim()) {
+
+          content.innerHTML = `
+            <div class="error">
+              <h2>README.md is Empty</h2>
+            </div>
+          `;
+
+          return;
+        }
+
         content.innerHTML = marked.parse(markdown);
 
       })
@@ -168,10 +215,26 @@
         content.innerHTML = `
           <div class="error">
             <h2>Error Loading README</h2>
+
             <p>${error.message}</p>
 
+            <hr>
+
             <p><strong>Attempted Path:</strong></p>
+
             <code>${finalPath}</code>
+
+            <hr>
+
+            <p><strong>Possible Reasons:</strong></p>
+
+            <ul>
+              <li>README.md file missing</li>
+              <li>Wrong folder name</li>
+              <li>Filename case issue (README.md)</li>
+              <li>GitHub Pages cache delay</li>
+            </ul>
+
           </div>
         `;
 
