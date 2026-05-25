@@ -43,8 +43,6 @@ The steps that form a CI/CD pipeline are distinct subsets of tasks grouped into 
 
 ---
 
-
-
 ## 5. Add Topics Covered
 
 Add:
@@ -102,6 +100,8 @@ This folder contains learning resources, notes, workflows, architecture diagrams
 
 CI/CD automates software building, testing, integration, and deployment processes, enabling faster and more reliable software delivery.
 
+```
+
 ## 📂 Folder Structure
 
 ```bash
@@ -115,4 +115,5 @@ CI-CD-Pipelines/
 ├── TravisCI/
 ├── Tekton/
 └── README.md
+
 ```
