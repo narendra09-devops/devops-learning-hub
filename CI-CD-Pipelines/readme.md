@@ -1,4 +1,4 @@
-### Continuous Integration-Continous Deployment 
+### Continuous Integration-Continuous Deployment 
 ************
 
 ## What is it?
@@ -43,7 +43,7 @@ The steps that form a CI/CD pipeline are distinct subsets of tasks grouped into 
 
 ---
 
-```markdown
+````markdown
 ## 🚀 Topics Covered
 
 - Continuous Integration
@@ -90,7 +90,6 @@ The steps that form a CI/CD pipeline are distinct subsets of tasks grouped into 
 - Rollback Strategies
 - Pipeline Security
 
-``` 
 ---
 # CI/CD Pipelines
 
@@ -112,5 +111,4 @@ CI-CD-Pipelines/
 ├── TravisCI/
 ├── Tekton/
 └── README.md
-
 ```
