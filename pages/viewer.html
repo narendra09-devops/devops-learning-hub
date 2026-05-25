@@ -3,72 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markdown Viewer</title>
+
+  <title>DevOps Learning Hub</title>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <style>
-    body {
-      background: #0b1020;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px;
+    body{
+      background:#f4f4f4;
+      margin:0;
+      padding:40px;
+      font-family:Arial, sans-serif;
     }
 
-    #content {
-      max-width: 1000px;
-      margin: auto;
-      background: #13203a;
-      padding: 30px;
-      border-radius: 10px;
+    .container{
+      max-width:1000px;
+      margin:auto;
+      background:white;
+      padding:40px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
     }
 
-    h1,h2,h3 {
-      color: #38bdf8;
+    img{
+      max-width:100%;
     }
 
-    code {
-      background: #1e293b;
-      padding: 2px 6px;
-      border-radius: 4px;
+    pre{
+      background:#111827;
+      color:white;
+      padding:15px;
+      overflow:auto;
+      border-radius:8px;
     }
 
-    pre {
-      background: #020617;
-      padding: 15px;
-      overflow-x: auto;
-      border-radius: 10px;
+    code{
+      background:#eee;
+      padding:2px 5px;
+      border-radius:4px;
     }
 
-    a {
-      color: #38bdf8;
-    }
-
-    img {
-      max-width: 100%;
+    a{
+      color:#2563eb;
     }
   </style>
 </head>
+
 <body>
 
-<div id="content">Loading...</div>
+  <div class="container" id="content">
+    Loading...
+  </div>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  const file = params.get("file");
+  <script>
 
-  fetch(file)
-    .then(response => response.text())
-    .then(markdown => {
-      document.getElementById("content").innerHTML =
-        marked.parse(markdown);
-    })
-    .catch(error => {
-      document.getElementById("content").innerHTML =
-        "<h2>File not found</h2>";
-    });
-</script>
+    const params = new URLSearchParams(window.location.search);
+
+    const file = params.get("file");
+
+    fetch(file)
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("content").innerHTML =
+          marked.parse(text);
+      })
+      .catch(error => {
+        document.getElementById("content").innerHTML =
+          "<h2>README not found</h2>";
+      });
+
+  </script>
 
 </body>
 </html>
