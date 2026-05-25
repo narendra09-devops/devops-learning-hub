@@ -4,6 +4,8 @@ Linux is one of the most important foundational technologies used in DevOps, Clo
 
 This folder contains learning resources, administration guides, troubleshooting notes, scripting examples, interview questions, architecture concepts, commands, and hands-on labs related to Linux Operating Systems.
 
+![Linux](../assets/linux-banner.png)
+
 ---
 
 # 🖥️ Terminal Commands
