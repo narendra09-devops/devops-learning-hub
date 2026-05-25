@@ -1,67 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DevOps Learning Hub</title>
-    <style>
-        body{
-            font-family: Arial;
-            background:#0f172a;
-            color:white;
-            padding:40px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevOps Learning Hub</title>
 
-        h1{
-            color:#38bdf8;
-        }
-
-        .container{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-            margin-top:30px;
-        }
-
-        .card{
-            background:#1e293b;
-            padding:20px;
-            border-radius:10px;
-            transition:0.3s;
-        }
-
-        .card:hover{
-            background:#334155;
-            transform:scale(1.03);
-        }
-
-        a{
-            color:white;
-            text-decoration:none;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🚀 DevOps Learning Hub</h1>
+  <header>
+    <h1>🚀 DevOps Learning Hub</h1>
 
-<p>
-Complete DevOps, Cloud, Kubernetes, Linux, Networking, CI/CD, and Infrastructure learning repository.
-</p>
+    <p>
+      Complete DevOps, Cloud, Kubernetes, Linux, Networking,
+      CI/CD, and Infrastructure learning repository.
+    </p>
+  </header>
 
-<div class="container">
+  <section class="search-box">
+    <input type="text" id="searchInput" placeholder="Search topics...">
+  </section>
 
-<div class="card"><a href="#">Linux</a></div>
-<div class="card"><a href="#">Docker</a></div>
-<div class="card"><a href="#">Kubernetes</a></div>
-<div class="card"><a href="#">Terraform</a></div>
-<div class="card"><a href="#">Ansible</a></div>
-<div class="card"><a href="#">GitOps</a></div>
-<div class="card"><a href="#">Networking</a></div>
-<div class="card"><a href="#">CI-CD Pipelines</a></div>
-<div class="card"><a href="#">Observability</a></div>
-<div class="card"><a href="#">Cloud Platforms</a></div>
+  <section class="cards-container">
 
-</div>
+    <a href="./Linux/" class="card">Linux</a>
+
+    <a href="./Containers/" class="card">Containers</a>
+
+    <a href="./Networking/" class="card">Networking</a>
+
+    <a href="./CI-CD-Pipelines/" class="card">CI/CD Pipelines</a>
+
+    <a href="./Cloud-Platforms/" class="card">Cloud Platforms</a>
+
+    <a href="./Version-Control/" class="card">Version Control</a>
+
+    <a href="./GitOps/" class="card">GitOps</a>
+
+    <a href="./Databases/" class="card">Databases</a>
+
+    <a href="./Observability/" class="card">Observability</a>
+
+    <a href="./Security/" class="card">Security</a>
+
+    <a href="./Projects/" class="card">Projects</a>
+
+    <a href="./Interview-Questions/" class="card">
+      Interview Questions
+    </a>
+
+  </section>
+
+  <footer>
+    <p>Created by Narendra | DevOps Learning Hub</p>
+  </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
