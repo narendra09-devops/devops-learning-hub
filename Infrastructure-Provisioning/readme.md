@@ -1,46 +1,98 @@
-# Infrastructure as Code
+# Infrastructure Provisioning
 
+Infrastructure as Code (IaC) is the process of managing and provisioning infrastructure through machine-readable configuration files rather than manual configuration.
 
-Infrastructure as code - Infrastructure as code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.[1] The IT infrastructure managed by this comprises both physical equipment such as bare-metal servers as well as virtual machines and associated configuration resources. The definitions may be in a version control system. It can use either scripts or declarative definitions, rather than manual processes, but the term is more often used to promote declarative approaches. 
+Infrastructure includes:
+- Servers
+- Virtual Machines
+- Cloud Resources
+- Storage
+- Networking
+- Kubernetes Clusters
+- Security Configurations
 
-Simply code your infrastructure configuration files with combination of different cloud providers.
+IaC helps automate deployments, reduce manual work, improve consistency, and enable version-controlled infrastructure management.
 
+---
 
- What is Terraform?
-  - With Terraform, you describe your complete infrastructure as code, even as it spans multiple service providers. Your servers may come from AWS, your DNS may come from CloudFlare, and your database may come from Heroku. Terraform will build all these resources across all these providers in parallel.
+# What is Terraform?
 
-  - Terraform was developed by Hashicorp, the company behind Vagrant, Consul, Vault, Nomad and other tools from HashiStack. This is a configuration orchestration tool that is incredible for provisioning, adjusting and destroying the virtual server environments. It is available both as a DevOps-as-a-Service enterprise-grade offer from Hashicorp and as an open-source solution able to work with a variety of Cloud Service Providers to create multi-cloud ecosystems.
+Terraform is an Infrastructure as Code (IaC) tool developed by HashiCorp.
 
+With Terraform, you can provision and manage infrastructure across multiple cloud providers including AWS, Azure, GCP, Cloudflare, Kubernetes, and more.
 
-  - Infrastructure as Code: Infrastructure is described using a high-level configuration syntax. This allows a blueprint of your datacenter to be versioned and treated as you would any other code. Additionally, infrastructure can be shared and re-used.
+## Key Features
 
-  - Execution Plans: Terraform has a "planning" step where it generates an execution plan. The execution plan shows what Terraform will do when you call apply. This lets you avoid any surprises when Terraform manipulates infrastructure.
+- Infrastructure as Code
+- Execution Plans
+- Resource Graph
+- Multi-Cloud Support
+- State Management
+- Reusable Modules
 
-  - Resource Graph: Terraform builds a graph of all your resources, and parallelizes the creation and modification of any non-dependent resources. Because of this, Terraform builds infrastructure as efficiently as possible, and operators get insight into dependencies in their infrastructure.
+---
 
+# What is Ansible?
 
-- What is Ansible?
-  - Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates. Ansible’s goals are foremost those of simplicity and maximum ease of use.
+Ansible is an IT automation and configuration management tool.
 
-- Puppet Labs
-  - Puppet is an automated administrative engine for your Linux, Unix, and Windows systems and performs administrative tasks (such as adding users, installing packages, and updating server configurations) based on a centralized specification.
-  
-- Chef 
-  - Chef enables you to manage and scale cloud infrastructure with no downtime or interruptions. Freely move applications and configurations from one cloud to another. Chef is integrated with all major cloud providers including Amazon EC2, VMWare, IBM Smartcloud, Rackspace, OpenStack, Windows Azure, HP Cloud, Google Compute Engine, Joyent Cloud and others.
-  
-- AWS CloudFormation
-  - You can use AWS CloudFormation’s sample templates or create your own templates to describe the AWS resources, and any associated dependencies or runtime parameters, required to run your application. You don’t need to figure out the order in which AWS services need to be provisioned or the subtleties of how to make those dependencies work.
+It is used for:
+- Configuration Management
+- Application Deployment
+- Server Automation
+- Orchestration
+- Continuous Delivery
 
-  # Infrastructure Provisioning
+Ansible focuses on simplicity and agentless automation.
 
-This folder contains learning resources, Infrastructure as Code (IaC) tools, automation scripts, cloud provisioning guides, configuration files, architecture diagrams, interview questions, and hands-on projects related to Infrastructure Provisioning in DevOps and Cloud environments.
+---
 
-Infrastructure Provisioning is the process of automatically creating, configuring, and managing servers, cloud resources, networking, storage, Kubernetes clusters, and other infrastructure components using code and automation tools.
+# What is Puppet?
 
+Puppet is a configuration management tool used to automate infrastructure administration.
+
+It helps manage:
+- Users
+- Packages
+- Services
+- Server Configurations
+- System Compliance
+
+---
+
+# What is Chef?
+
+Chef is an automation platform used for infrastructure provisioning and configuration management.
+
+Chef supports:
+- Cloud Infrastructure Automation
+- Server Configuration
+- Continuous Deployment
+- Policy Enforcement
+- Infrastructure Scaling
+
+---
+
+# What is AWS CloudFormation?
+
+AWS CloudFormation allows you to define AWS infrastructure using templates.
+
+You can automate:
+- EC2
+- VPC
+- IAM
+- S3
+- RDS
+- EKS
+- Load Balancers
+
+CloudFormation handles dependencies and resource provisioning automatically.
+
+---
 
 # 📂 Folder Structure
 
-```
+```bash
 Infrastructure-Provisioning/
 │
 ├── Terraform/
@@ -60,4 +112,14 @@ Infrastructure-Provisioning/
 ├── Modules/
 └── README.md
 ```
-```
+
+---
+
+# Learning Goals
+
+- Learn Infrastructure as Code (IaC)
+- Automate cloud provisioning
+- Manage infrastructure with code
+- Understand Terraform and Ansible
+- Build reusable infrastructure modules
+- Prepare for DevOps and Cloud Engineering roles
