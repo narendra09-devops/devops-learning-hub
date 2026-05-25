@@ -1,31 +1,69 @@
 # Monitoring & Observability
 
-## What is monitoring?
+## What is Monitoring?
 
+Monitoring is the process of collecting, analyzing, and visualizing system metrics and logs to ensure infrastructure and applications are running properly.
 
-## What is Observabilty?
-
-- In control theory,observabity is a measure of how well internal state of a system can be inferred from knowledge of its external outputs.
-
-- These are the three main concept of observabilty.
-  - Structured Logging
-  - Metrics
-  - Traces
+Monitoring helps teams:
+- Detect failures
+- Track performance
+- Monitor uptime
+- Generate alerts
+- Troubleshoot issues
+- Improve reliability
 
 ---
 
-## Observabilty
+# What is Observability?
 
-> Observabilty stack
+Observability is the ability to understand the internal state of a system by analyzing its external outputs such as logs, metrics, and traces.
+
+In DevOps and Cloud environments, observability helps engineers quickly identify issues, troubleshoot failures, and improve system performance.
+
+## Three Pillars of Observability
+
+- Structured Logging
+- Metrics
+- Distributed Tracing
+
+---
+
+# Observability Stack
 
 ```yaml
-    Monitoring     -    Metrics     - Prometheus 
-    Monitoring     -    Dashboard   - Grafana
-    Logging        -    Logs        - Loki
-    Logging        -    Log Shipping    - Fluentd 
-    Monitoring     -    Metrics Shipping - Thanos
-    Monitoring     -    Grafana Backup   - Wizzy
+Monitoring  -> Metrics Collection      -> Prometheus
+Monitoring  -> Visualization Dashboard -> Grafana
+Logging     -> Log Aggregation         -> Loki
+Logging     -> Log Shipping            -> Fluentd
+Monitoring  -> Metrics Storage         -> Thanos
+Monitoring  -> Dashboard Backup        -> Wizzy
 ```
+
+---
+
+# Popular Observability Tools
+
+## Monitoring Tools
+- Prometheus
+- Grafana
+- Nagios
+- Zabbix
+- Datadog
+
+## Logging Tools
+- ELK Stack
+- Loki
+- Fluentd
+- Fluent Bit
+- Graylog
+
+## Tracing Tools
+- Jaeger
+- Zipkin
+- OpenTelemetry
+
+---
+
 # Observability
 
 This folder contains learning resources, monitoring tools, logging systems, tracing concepts, dashboards, alerts, troubleshooting guides, interview questions, and hands-on projects related to Observability in DevOps, Cloud, Kubernetes, and Infrastructure environments.
@@ -55,3 +93,18 @@ Observability/
 ├── Troubleshooting/
 └── README.md
 ```
+
+---
+
+# Learning Goals
+
+- Understand Monitoring and Observability
+- Learn Metrics, Logs, and Traces
+- Build dashboards with Grafana
+- Configure Prometheus monitoring
+- Centralize logs using Loki and ELK
+- Monitor Kubernetes clusters
+- Implement distributed tracing
+- Create alerts and notifications
+- Troubleshoot production systems
+- Prepare for DevOps and SRE roles

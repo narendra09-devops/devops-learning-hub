@@ -1,8 +1,9 @@
-# Infrastructure-Provisioning
+# Infrastructure Provisioning
 
 Infrastructure as Code (IaC) is the process of managing and provisioning infrastructure through machine-readable configuration files rather than manual configuration.
 
 Infrastructure includes:
+
 - Servers
 - Virtual Machines
 - Cloud Resources
@@ -37,6 +38,7 @@ With Terraform, you can provision and manage infrastructure across multiple clou
 Ansible is an IT automation and configuration management tool.
 
 It is used for:
+
 - Configuration Management
 - Application Deployment
 - Server Automation
@@ -52,6 +54,7 @@ Ansible focuses on simplicity and agentless automation.
 Puppet is a configuration management tool used to automate infrastructure administration.
 
 It helps manage:
+
 - Users
 - Packages
 - Services
@@ -65,6 +68,7 @@ It helps manage:
 Chef is an automation platform used for infrastructure provisioning and configuration management.
 
 Chef supports:
+
 - Cloud Infrastructure Automation
 - Server Configuration
 - Continuous Deployment
@@ -78,6 +82,7 @@ Chef supports:
 AWS CloudFormation allows you to define AWS infrastructure using templates.
 
 You can automate:
+
 - EC2
 - VPC
 - IAM
@@ -90,7 +95,58 @@ CloudFormation handles dependencies and resource provisioning automatically.
 
 ---
 
-# 📂 Folder Structure
+## 🚀 Topics Covered
+
+- Infrastructure as Code (IaC)
+- Terraform
+- CloudFormation
+- Ansible
+- Pulumi
+- Vagrant
+- Packer
+- Kubernetes Provisioning
+- Cloud Infrastructure Automation
+- State Management
+- Infrastructure Security
+
+---
+
+## 🛠 Popular Tools
+
+- Terraform
+- Ansible
+- AWS CloudFormation
+- Pulumi
+- Vagrant
+- Packer
+- Chef
+- Puppet
+
+---
+
+## 🧪 Hands-on Projects
+
+- AWS Infrastructure Provisioning
+- Terraform EC2 Deployment
+- Kubernetes Cluster Provisioning
+- Ansible Automation Setup
+- Multi-Cloud Deployment
+- Infrastructure Monitoring Setup
+
+---
+
+## 🎯 Learning Goals
+
+- Learn Infrastructure as Code (IaC)
+- Automate cloud provisioning
+- Manage infrastructure using code
+- Understand Terraform and Ansible
+- Build reusable infrastructure modules
+- Prepare for DevOps and Cloud Engineering roles
+
+---
+
+## 📂 Folder Structure
 
 ```bash
 Infrastructure-Provisioning/
@@ -112,15 +168,3 @@ Infrastructure-Provisioning/
 ├── Modules/
 └── README.md
 ```
-
----
-
-# Learning Goals
-
-- Learn Infrastructure as Code (IaC)
-- Automate cloud provisioning
-- Manage infrastructure with code
-- Understand Terraform and Ansible
-- Build reusable infrastructure modules
-- Prepare for DevOps and Cloud Engineering roles
----
