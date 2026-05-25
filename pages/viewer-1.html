@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Viewer</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+    body {
+      background: #0b1020;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+
+    #content {
+      max-width: 1000px;
+      margin: auto;
+      background: #13203a;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    h1,h2,h3 {
+      color: #38bdf8;
+    }
+
+    code {
+      background: #1e293b;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #020617;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 10px;
+    }
+
+    a {
+      color: #38bdf8;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="content">Loading...</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const file = params.get("file");
+
+  fetch(file)
+    .then(response => response.text())
+    .then(markdown => {
+      document.getElementById("content").innerHTML =
+        marked.parse(markdown);
+    })
+    .catch(error => {
+      document.getElementById("content").innerHTML =
+        "<h2>File not found</h2>";
+    });
+</script>
+
+</body>
+</html>
