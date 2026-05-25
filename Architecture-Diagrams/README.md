@@ -85,7 +85,7 @@ These diagrams help understand system design, deployment flow, networking commun
 
 # Folder Structure
 
-```text
+``` bash
 Architecture-Diagrams/
 │
 ├── AWS/
@@ -97,3 +97,4 @@ Architecture-Diagrams/
 ├── Monitoring/
 ├── Security/
 └── DevOps/
+```

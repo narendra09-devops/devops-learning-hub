@@ -1,12 +1,12 @@
 # Infrastructure as Code
 
 
-Infrastruce as code - Infrastructure as code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.[1] The IT infrastructure managed by this comprises both physical equipment such as bare-metal servers as well as virtual machines and associated configuration resources. The definitions may be in a version control system. It can use either scripts or declarative definitions, rather than manual processes, but the term is more often used to promote declarative approaches. 
+Infrastructure as code - Infrastructure as code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.[1] The IT infrastructure managed by this comprises both physical equipment such as bare-metal servers as well as virtual machines and associated configuration resources. The definitions may be in a version control system. It can use either scripts or declarative definitions, rather than manual processes, but the term is more often used to promote declarative approaches. 
 
 Simply code your infrastructure configuration files with combination of different cloud providers.
 
 
-- What is Terraform?
+ What is Terraform?
   - With Terraform, you describe your complete infrastructure as code, even as it spans multiple service providers. Your servers may come from AWS, your DNS may come from CloudFlare, and your database may come from Heroku. Terraform will build all these resources across all these providers in parallel.
 
   - Terraform was developed by Hashicorp, the company behind Vagrant, Consul, Vault, Nomad and other tools from HashiStack. This is a configuration orchestration tool that is incredible for provisioning, adjusting and destroying the virtual server environments. It is available both as a DevOps-as-a-Service enterprise-grade offer from Hashicorp and as an open-source solution able to work with a variety of Cloud Service Providers to create multi-cloud ecosystems.
@@ -37,11 +37,10 @@ This folder contains learning resources, Infrastructure as Code (IaC) tools, aut
 
 Infrastructure Provisioning is the process of automatically creating, configuring, and managing servers, cloud resources, networking, storage, Kubernetes clusters, and other infrastructure components using code and automation tools.
 
----
 
 # 📂 Folder Structure
 
-```bash
+```
 Infrastructure-Provisioning/
 │
 ├── Terraform/
@@ -60,4 +59,5 @@ Infrastructure-Provisioning/
 ├── Security/
 ├── Modules/
 └── README.md
+```
 ```

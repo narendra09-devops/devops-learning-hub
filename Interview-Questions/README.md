@@ -23,7 +23,7 @@ This folder contains interview questions, answers, troubleshooting scenarios, re
 
 These resources are useful for beginners, experienced professionals, certification preparation, technical discussions, and job interview preparation.
 
----
+
 
 # 📂 Folder Structure
 
@@ -49,3 +49,4 @@ Interview-Questions/
 ├── Scenario-Based/
 ├── HR-Questions/
 └── README.md
+```
