@@ -1,0 +1,20 @@
+# Node.js
+node_modules/
+
+# Python
+venv/
+__pycache__/
+
+# Terraform
+*.tfstate
+.terraform/
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Build folders
+dist/
+build/
