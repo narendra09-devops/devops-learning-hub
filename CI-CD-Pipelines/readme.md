@@ -43,10 +43,6 @@ The steps that form a CI/CD pipeline are distinct subsets of tasks grouped into 
 
 ---
 
-## 5. Add Topics Covered
-
-Add:
-
 ```markdown
 ## 🚀 Topics Covered
 
@@ -94,13 +90,14 @@ Add:
 - Rollback Strategies
 - Pipeline Security
 
+``` 
+---
 # CI/CD Pipelines
 
 This folder contains learning resources, notes, workflows, architecture diagrams, hands-on projects, and interview questions related to Continuous Integration and Continuous Deployment (CI/CD).
 
 CI/CD automates software building, testing, integration, and deployment processes, enabling faster and more reliable software delivery.
 
-```
 
 ## 📂 Folder Structure
 
