@@ -115,79 +115,58 @@
     Loading README...
   </div>
 
-  <script>
+<script>
 
-    const content = document.getElementById("content");
+  const content = document.getElementById("content");
 
-    const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
 
-    const file = params.get("file");
+  const file = params.get("file");
 
-    if (!file) {
+  if (!file) {
 
-      content.innerHTML = `
-        <div class="error">
-          <h2>No README File Specified</h2>
-        </div>
-      `;
+    content.innerHTML = `
+      <div class="error">
+        <h2>No README File Specified</h2>
+      </div>
+    `;
 
-    } else {
+  } else {
 
-      fetch(file)
+    fetch(decodeURIComponent(file))
 
-        .then(response => {
+      .then(response => {
 
-          if (!response.ok) {
-            throw new Error("README.md file not found");
-          }
+        if (!response.ok) {
+          throw new Error("README.md file not found");
+        }
 
-          return response.text();
+        return response.text();
 
-        })
+      })
 
-        .then(markdown => {
+      .then(markdown => {
 
-          if (!markdown.trim()) {
+        content.innerHTML = marked.parse(markdown);
 
-            content.innerHTML = `
-              <div class="error">
-                <h2>README.md is Empty</h2>
-              </div>
-            `;
+      })
 
-            return;
-          }
+      .catch(error => {
 
-          content.innerHTML = marked.parse(markdown);
+        content.innerHTML = `
+          <div class="error">
+            <h2>Error Loading README</h2>
+            <p>${error.message}</p>
+          </div>
+        `;
 
-        })
+        console.error(error);
 
-        .catch(error => {
+      });
 
-          content.innerHTML = `
-            <div class="error">
-              <h2>Error Loading README</h2>
-              <p>${error.message}</p>
+  }
 
-              <p>
-                Possible reasons:
-              </p>
-
-              <ul>
-                <li>README.md file missing</li>
-                <li>Wrong folder path</li>
-                <li>Markdown syntax issue</li>
-              </ul>
-            </div>
-          `;
-
-          console.error(error);
-
-        });
-
-    }
-
-  </script>
+</script>
 
 </body>
 
