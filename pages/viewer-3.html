@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DevOps Learning Hub</title>
+
+  <!-- Markdown Library -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+
+    body{
+      background:#f4f4f4;
+      margin:0;
+      padding:40px;
+      font-family:Arial, sans-serif;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+      background:white;
+      padding:40px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1,h2,h3{
+      color:#111827;
+    }
+
+    p{
+      line-height:1.7;
+    }
+
+    img{
+      max-width:100%;
+      border-radius:8px;
+    }
+
+    pre{
+      background:#111827;
+      color:white;
+      padding:15px;
+      overflow:auto;
+      border-radius:8px;
+    }
+
+    code{
+      background:#eeeeee;
+      padding:2px 5px;
+      border-radius:4px;
+      font-family:Consolas;
+    }
+
+    pre code{
+      background:none;
+      padding:0;
+    }
+
+    a{
+      color:#2563eb;
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table, th, td{
+      border:1px solid #ddd;
+    }
+
+    th, td{
+      padding:12px;
+      text-align:left;
+    }
+
+    blockquote{
+      border-left:4px solid #2563eb;
+      padding-left:15px;
+      color:#555;
+      margin-left:0;
+    }
+
+    hr{
+      border:none;
+      border-top:1px solid #ddd;
+      margin:30px 0;
+    }
+
+    .error{
+      color:red;
+      background:#fff0f0;
+      padding:20px;
+      border-radius:8px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container" id="content">
+    Loading README...
+  </div>
+
+<script>
+
+  const content = document.getElementById("content");
+
+  const params = new URLSearchParams(window.location.search);
+
+  const file = params.get("file");
+
+  if (!file) {
+
+    content.innerHTML = `
+      <div class="error">
+        <h2>No README File Specified</h2>
+      </div>
+    `;
+
+  } else {
+
+    fetch(decodeURIComponent(file))
+
+      .then(response => {
+
+        if (!response.ok) {
+          throw new Error("README.md file not found");
+        }
+
+        return response.text();
+
+      })
+
+      .then(markdown => {
+
+        content.innerHTML = marked.parse(markdown);
+
+      })
+
+      .catch(error => {
+
+        content.innerHTML = `
+          <div class="error">
+            <h2>Error Loading README</h2>
+            <p>${error.message}</p>
+          </div>
+        `;
+
+        console.error(error);
+
+      });
+
+  }
+
+</script>
+
+</body>
+
+</html>
