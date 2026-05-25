@@ -115,10 +115,4 @@ CI-CD-Pipelines/
 ├── TravisCI/
 ├── Tekton/
 └── README.md
-
----
-
-# 👨‍💻 Maintained By
-
-Narendra  
-DevOps Learning Hub
+```
