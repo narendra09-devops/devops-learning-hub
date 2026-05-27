@@ -224,9 +224,14 @@
     }
 
     .markdown img {
+      display: block;
+      width: 100%;
       max-width: 100%;
+      max-height: 340px;
+      object-fit: contain;
       border-radius: 8px;
       border: 1px solid var(--line);
+      background: #f8fafc;
     }
 
     .markdown pre {
@@ -342,7 +347,8 @@
     const owner = "narendra09-devops";
     const repo = "devops-learning-hub";
     const branch = "main";
-    const repoBasePath = "/devops-learning-hub/";
+    const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+    const repoBasePath = isLocalPreview ? "/" : "/devops-learning-hub/";
     const githubTreeUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
     const rawBaseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/`;
 
@@ -396,9 +402,7 @@
           const response = await fetch(url);
           if (response.ok) {
             const markdown = await response.text();
-            content.innerHTML = markdown.trim()
-              ? marked.parse(markdown)
-              : `<div class="notice">This file is empty.</div>`;
+            if (markdown.trim()) { content.innerHTML = marked.parse(markdown); fixRenderedPaths(path); } else { content.innerHTML = `<div class="notice">This file is empty.</div>`; }
             return;
           }
         } catch (error) {
@@ -487,6 +491,51 @@
           </a>
         `;
       }).join("");
+    }
+
+
+    function fixRenderedPaths(markdownPath) {
+      content.querySelectorAll("a[href]").forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href || isExternalPath(href)) return;
+        const resolved = resolveRepoPath(markdownPath, href);
+        link.setAttribute("href", fileHref(resolved));
+      });
+
+      content.querySelectorAll("img[src]").forEach((image) => {
+        const src = image.getAttribute("src");
+        if (!src || isExternalPath(src)) return;
+        const resolved = resolveRepoPath(markdownPath, src);
+        image.setAttribute("src", `${repoBasePath}${resolved}`);
+        image.addEventListener("error", () => {
+          const placeholder = document.createElement("div");
+          placeholder.className = "notice";
+          placeholder.textContent = `Image not found: ${resolved}`;
+          image.replaceWith(placeholder);
+        }, { once: true });
+      });
+    }
+
+    function resolveRepoPath(fromFile, target) {
+      const cleanTarget = target.split("#")[0].split("?")[0];
+      const base = fromFile === "README.md" ? "" : parentFolder(fromFile);
+      const parts = `${base}/${cleanTarget}`.split("/");
+      const normalized = [];
+
+      parts.forEach((part) => {
+        if (!part || part === ".") return;
+        if (part === "..") {
+          normalized.pop();
+          return;
+        }
+        normalized.push(part);
+      });
+
+      return normalized.join("/");
+    }
+
+    function isExternalPath(value) {
+      return /^(https?:|mailto:|tel:|#|data:)/i.test(value) || value.startsWith("/");
     }
 
     function fileHref(path) {
