@@ -1,211 +1,74 @@
-# 🚀 DevOps Learning Hub
+# DevOps & Cloud Engineer Learning Hub
 
-A complete collection of DevOps, Cloud, Linux, Networking, Kubernetes, Docker, CI/CD, Monitoring, Security, and Interview preparation resources.
+GitHub Pages website:
 
-This repository is designed for:
-- DevOps Engineers
-- Cloud Engineers
-- SRE Engineers
-- Platform Engineers
-- System Administrators
-- Students & Beginners
+https://narendra09-devops.github.io/devops-learning-hub/index.html
 
----
+This repository is a beginner-friendly DevOps and cloud engineering learning website. It organizes roadmap topics, hands-on projects, AWS labs, Linux practice, Docker/Kubernetes tasks, Terraform, CI/CD, monitoring, interview preparation, video placeholders, and career profile guidance.
 
-# 📚 Repository Structure
+## Website Pages
 
-## 🏗 Architecture & Design
-- Architecture-Diagrams
+- `index.html` - Homepage with hero banner, roadmap cards, featured projects, learning websites, and calls to action.
+- `roadmap.html` - Step-by-step DevOps roadmap.
+- `projects.html` - Practical project cards with difficulty, tools, objectives, practice outcomes, and interview questions.
+- `aws-labs.html` - AWS practice labs.
+- `linux.html` - Linux administration and scripting practice.
+- `docker-kubernetes.html` - Container and Kubernetes practice.
+- `terraform.html` - Infrastructure as Code practice.
+- `cicd.html` - GitHub Actions and Jenkins pipeline practice.
+- `monitoring.html` - Monitoring, logging, and alerting practice.
+- `interview.html` - Topic-wise interview questions and short answers.
+- `videos.html` - Placeholder video reference cards.
+- `resume-linkedin.html` - Resume, LinkedIn, GitHub, and portfolio checklist.
+- `contact.html` - Static contact/connect page.
 
-## 🎓 Certifications
-- Certifications
+## Existing Learning Content
 
-## 📄 Cheatsheets
-- Cheatsheets
+The original learning folders are still kept in the repository, including:
 
-## 🔄 CI/CD
-- CI-CD-Pipelines
+- `Linux/`
+- `Containers/`
+- `Cloud-Platforms/`
+- `CI-CD-Pipelines/`
+- `Infrastructure-Provisioning/`
+- `Observability/`
+- `Interview-Questions/`
+- `Version-Control/`
+- and other topic folders.
 
-## ☁ Cloud Platforms
-- Cloud-Platforms
-  - AWS
-  - Azure
-  - GCP
-  - DigitalOcean
+The existing `pages/viewer.html` remains available for rendering folder README files.
 
-## 📦 Containers & Orchestration
-- Containers
-  - Docker
-  - Kubernetes
-  - Minikube
+## How To Update
 
-## 🗄 Databases
-- Databases
+Most repeated cards and lists are generated from `script.js`.
 
-## 📡 Data Streaming
-- Data-Streaming
-  - Apache Kafka
+Update:
 
-## ⚙ DevOps
-- DevOps
+- Roadmap steps in the `roadmap` array.
+- Project cards in the `projects` array.
+- Learning resources in the `resources` array.
+- Interview question topics in the `interviewTopics` array.
+- Video placeholders in the `videos` array.
+- Lab cards in the `labs` object.
 
-## 🔁 GitOps
-- GitOps
-  - ArgoCD
-  - GitOps Concepts
+Style changes live in:
 
-## 📘 How-To Guides
-- How-To-Guides
+- `style.css`
 
-## 🖼 Images & Diagrams
-- Images
+Images and website assets live in:
 
-## 🏗 Infrastructure Provisioning
-- Infrastructure-Provisioning
-  - Terraform
-  - Ansible
-  - CloudFormation
-  - Chef
-  - Puppet
+- `assets/`
 
-## 💼 Interview Preparation
-- Interview-Questions
+## GitHub Pages Notes
 
-## 🐧 Linux
-- Linux
+This site uses only static HTML, CSS, and JavaScript. It does not require a backend server and is compatible with GitHub Pages from the repository root.
 
-## 🌐 Networking
-- Networking
-  - IPv4
-  - IPv6
-  - VLANs
-  - OSPF
-  - BGP
-  - NAT
-  - TCPDump
-  - Wireshark
-  - QoS
-  - VPN/IPSec
-  - Routing Protocols
+After changes:
 
-## 📊 Observability & Monitoring
-- Observability
-  - Prometheus
-  - Grafana
-  - Loki
-  - Jaeger
-  - Nagios
-  - Datadog
+```bash
+git add .
+git commit -m "Update learning hub website"
+git push origin main
+```
 
-## 📦 Package Managers
-- Package-Managers
-  - Helm
-
-## 💻 Programming
-- Programming
-
-## 🧠 Scripting
-- Scripting
-
-## 🔐 Security
-- Security
-
-## 🖥 Servers
-- Servers
-
-## 🔧 Version Control
-- Version-Control
-  - Git
-  - GitHub
-  - GitLab
-
----
-
-# 🎯 Topics Covered
-
-- Linux Administration
-- Shell Scripting
-- Git & GitHub
-- Docker
-- Kubernetes
-- Terraform
-- Ansible
-- Jenkins
-- GitHub Actions
-- GitLab CI
-- Cloud Computing
-- Networking Fundamentals
-- Monitoring & Logging
-- Security Best Practices
-- Infrastructure as Code (IaC)
-- GitOps
-- CI/CD Pipelines
-- DevOps Interview Questions
-
----
-
-# 🛠 Tools Included
-
-| Category | Tools |
-|---|---|
-| CI/CD | Jenkins, GitHub Actions, GitLab CI, CircleCI |
-| Containers | Docker, Kubernetes, Minikube |
-| IaC | Terraform, CloudFormation |
-| Configuration Management | Ansible, Chef, Puppet |
-| Monitoring | Prometheus, Grafana, Loki |
-| Logging | Fluentd |
-| Cloud | AWS, Azure, GCP |
-| Streaming | Kafka |
-| Version Control | Git, GitHub, GitLab |
-
----
-
-# 📖 Learning Roadmap
-
-1. Linux Basics
-2. Networking Fundamentals
-3. Git & Version Control
-4. Shell Scripting
-5. Containers (Docker)
-6. Kubernetes
-7. CI/CD Pipelines
-8. Cloud Platforms
-9. Infrastructure as Code
-10. Monitoring & Security
-11. GitOps & Advanced DevOps
-
----
-
-# 🌟 Goals of This Repository
-
-- Build strong DevOps fundamentals
-- Prepare for DevOps interviews
-- Practice real-world DevOps tools
-- Create reusable DevOps notes
-- Maintain all learning resources in one place
-
----
-
-# 🤝 Contributions
-
-Contributions are welcome.
-
-You can:
-- Add notes
-- Improve documentation
-- Add projects
-- Share interview questions
-- Add architecture diagrams
-
----
-
-# 📌 Author
-
-**Narendra**  
-DevOps Engineer | Cloud & Automation Enthusiast
-
----
-
-# ⭐ Support
-
-If this repository helps you, consider giving it a ⭐ on GitHub.
+GitHub Pages may take a few minutes to refresh after a push.

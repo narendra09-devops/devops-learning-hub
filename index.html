@@ -3,68 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevOps Learning Hub</title>
+  <title>DevOps & Cloud Engineer Learning Hub</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body data-page="home">
   <header class="site-header">
-    <nav class="topbar" aria-label="Main navigation">
-      <a class="brand" href="./index.html" aria-label="DevOps Learning Hub home">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand" href="index.html">
         <span class="brand-mark">DL</span>
-        <span>DevOps Learning Hub</span>
+        <span>Narendra DevOps Learning Hub</span>
       </a>
-      <div class="nav-links">
-        <a class="nav-button nav-github" href="https://github.com/narendra09-devops/" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="nav-button nav-linkedin" href="https://www.linkedin.com/in/narendra09-devops" target="_blank" rel="noreferrer">LinkedIn</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="projects.html">Projects</a>
+        <a href="aws-labs.html">AWS Labs</a>
+        <a href="linux.html">Linux</a>
+        <a href="docker-kubernetes.html">Docker/K8s</a>
+        <a href="terraform.html">Terraform</a>
+        <a href="cicd.html">CI/CD</a>
+        <a href="monitoring.html">Monitoring</a>
+        <a href="interview.html">Interview</a>
+        <a href="videos.html">Videos</a>
+        <a href="resume-linkedin.html">Resume</a>
+        <a href="contact.html">Contact</a>
       </div>
     </nav>
 
-    <section class="hero" aria-label="DevOps Learning Hub banner">
-      <img class="hero-image" src="assets/devops-banner.gif" alt="DevOps Learning Hub banner for Narendra Pratap Singh" />
-      <div class="hero-actions">
-        <a class="primary-button" href="#topics">Explore Topics</a>
-        <a class="secondary-button" href="./pages/viewer.html?folder=README.md">View Main README</a>
+    <section class="hero hero-home">
+      <div class="hero-copy">
+        <p class="eyebrow">DevOps | Cloud | Linux | Kubernetes | CI/CD</p>
+        <h1>Learn DevOps & Cloud Engineering with Real Projects</h1>
+        <p>Beginner-friendly roadmaps, practical labs, interview preparation, and real-world cloud/DevOps tasks organized in one learning hub.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="roadmap.html">Start Roadmap</a>
+          <a class="btn btn-secondary" href="projects.html">Practice Projects</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/devops-banner.gif" alt="Narendra DevOps Learning Hub animated banner" />
       </div>
     </section>
   </header>
 
   <main>
-    <section class="toolbar" aria-label="Topic search">
-      <div>
-        <p class="section-kicker">Browse library</p>
-        <h1 id="topics">Choose a topic folder</h1>
-      </div>
-      <label class="search-box" for="searchInput">
-        <span>Search</span>
-        <input type="search" id="searchInput" placeholder="Search folders, tools, or topics..." autocomplete="off" />
-      </label>
-    </section>
-
-    <section class="learning-links" aria-labelledby="learningTitle">
+    <section class="section intro-section">
       <div class="section-heading">
-        <p class="section-kicker">Important learning websites</p>
-        <h2 id="learningTitle">DevOps, cloud, Kubernetes, CI/CD, and monitoring references</h2>
+        <p class="eyebrow">What this site gives you</p>
+        <h2>Practice-focused DevOps learning for real work</h2>
       </div>
-      <div class="resource-grid">
-        <a class="resource-card" href="https://kubernetes.io/docs/" target="_blank" rel="noreferrer"><span>Kubernetes</span><strong>Official Kubernetes Docs</strong></a>
-        <a class="resource-card" href="https://docs.docker.com/" target="_blank" rel="noreferrer"><span>Containers</span><strong>Docker Docs</strong></a>
-        <a class="resource-card" href="https://developer.hashicorp.com/terraform/docs" target="_blank" rel="noreferrer"><span>IaC</span><strong>Terraform Docs</strong></a>
-        <a class="resource-card" href="https://docs.github.com/en/actions" target="_blank" rel="noreferrer"><span>CI/CD</span><strong>GitHub Actions Docs</strong></a>
-        <a class="resource-card" href="https://learn.microsoft.com/en-us/azure/devops/" target="_blank" rel="noreferrer"><span>Cloud DevOps</span><strong>Azure DevOps Docs</strong></a>
-        <a class="resource-card" href="https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/introduction-to-devops.html" target="_blank" rel="noreferrer"><span>AWS</span><strong>DevOps on AWS</strong></a>
-        <a class="resource-card" href="https://www.jenkins.io/doc/" target="_blank" rel="noreferrer"><span>Automation</span><strong>Jenkins Docs</strong></a>
-        <a class="resource-card" href="https://prometheus.io/docs/tutorials/getting_started/" target="_blank" rel="noreferrer"><span>Monitoring</span><strong>Prometheus Guide</strong></a>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Follow a roadmap</h3>
+          <p>Learn Linux, networking, cloud, containers, IaC, CI/CD, monitoring, security, projects, and interviews step by step.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Build real projects</h3>
+          <p>Practice GitHub Pages, AWS S3, EC2, Docker, Kubernetes, Terraform, CloudWatch, SSL, backup validation, and patching.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Prepare for interviews</h3>
+          <p>Review topic-wise questions, short answers, and scenario-based DevOps questions that connect tools to real operations.</p>
+        </article>
       </div>
     </section>
 
-    <section class="cards-container" id="cardsContainer" aria-live="polite"></section>
-    <p class="empty-state" id="emptyState" hidden>No matching topics found.</p>
+    <section class="section">
+      <div class="section-heading section-heading-row">
+        <div>
+          <p class="eyebrow">Roadmap topics</p>
+          <h2>Choose your next DevOps topic</h2>
+        </div>
+        <label class="search-box">
+          <span>Search topics</span>
+          <input id="topicSearch" type="search" placeholder="Search Linux, AWS, Docker..." data-filter-input="topic-grid" />
+        </label>
+      </div>
+      <div class="card-grid" id="topic-grid" data-render="roadmap-preview"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading section-heading-row">
+        <div>
+          <p class="eyebrow">Featured projects</p>
+          <h2>Start with practical hands-on work</h2>
+        </div>
+        <a class="text-link" href="projects.html">View all projects</a>
+      </div>
+      <div class="card-grid" data-render="featured-projects"></div>
+    </section>
+
+    <section class="cta-band">
+      <div>
+        <p class="eyebrow">Interview preparation</p>
+        <h2>Turn practice into confident answers</h2>
+        <p>Use the interview page to revise Linux, AWS, Docker, Kubernetes, Terraform, CI/CD, monitoring, scenarios, and HR questions.</p>
+      </div>
+      <a class="btn btn-primary" href="interview.html">Prepare Now</a>
+    </section>
+
+    <section class="cta-band alt">
+      <div>
+        <p class="eyebrow">Video tutorials</p>
+        <h2>Add your favorite videos topic by topic</h2>
+        <p>The videos page contains organized placeholders for Linux, GitHub, AWS, Docker, Kubernetes, Terraform, CI/CD, monitoring, and interviews.</p>
+      </div>
+      <a class="btn btn-secondary" href="videos.html">Open Videos</a>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Important learning websites</p>
+        <h2>Official references worth bookmarking</h2>
+      </div>
+      <div class="resource-grid" data-render="resources"></div>
+    </section>
   </main>
 
-  <footer>
-    <span>Created by Narendra</span>
-    <a href="https://github.com/narendra09-devops" target="_blank" rel="noreferrer">GitHub</a>
-    <a href="https://www.linkedin.com/in/narendra09-devops" target="_blank" rel="noreferrer">LinkedIn</a>
+  <footer class="footer">
+    <p>Created by Narendra | DevOps & Cloud Engineer Learning Hub</p>
+    <div>
+      <a href="https://github.com/narendra09-devops" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/narendra09-devops" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
