@@ -2,138 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevOps Learning Hub</title>
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="./index.html" aria-label="DevOps Learning Hub home">
+        <span class="brand-mark">DL</span>
+        <span>DevOps Learning Hub</span>
+      </a>
+      <a class="github-link" href="https://github.com/narendra09-devops/devops-learning-hub" target="_blank" rel="noreferrer">GitHub Repo</a>
+    </nav>
 
-  <button id="themeToggle">🌙</button>
-
-  <header>
-    <h1>🚀 DevOps Learning Hub</h1>
-
-    <p>
-      Complete DevOps, Cloud, Kubernetes, Linux, Networking,
-      CI/CD, and Infrastructure learning repository.
-    </p>
+    <section class="hero">
+      <p class="eyebrow">Cloud | Linux | Kubernetes | CI/CD | Networking</p>
+      <h1>DevOps Learning Hub</h1>
+      <p class="hero-copy">A practical library of notes, diagrams, commands, projects, and interview preparation for DevOps learners and engineers.</p>
+      <div class="hero-actions">
+        <a class="primary-button" href="#topics">Explore Topics</a>
+        <a class="secondary-button" href="./pages/viewer.html?folder=README.md">View Main README</a>
+      </div>
+    </section>
   </header>
 
-  <section class="search-box">
-    <input type="text" id="searchInput" placeholder="Search topics...">
-  </section>
+  <main>
+    <section class="toolbar" aria-label="Topic search">
+      <div>
+        <p class="section-kicker">Browse library</p>
+        <h2 id="topics">Choose a topic folder</h2>
+      </div>
+      <label class="search-box" for="searchInput">
+        <span>Search</span>
+        <input type="search" id="searchInput" placeholder="Search folders, tools, or topics..." autocomplete="off" />
+      </label>
+    </section>
 
-  <section class="cards-container">
+    <section class="cards-container" id="cardsContainer" aria-live="polite"></section>
+    <p class="empty-state" id="emptyState" hidden>No matching topics found.</p>
+  </main>
 
-  <a href="./pages/viewer.html?file=../Architecture-Diagrams/README.md" class="card">
-    <h2>Architecture Diagrams</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Certifications/README.md" class="card">
-    <h2>Certifications</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Cheatsheets/README.md" class="card">
-    <h2>Cheatsheets</h2>
-  </a>
-
-   <a href="./pages/viewer.html?file=../CI-CD-Pipelines/README.md" class="card">
-  <h2>⚙️CI/CD Pipelines</h2>
-   </a>
-   
-  <a href="./pages/viewer.html?file=../Cloud-Platforms/README.md" class="card">
-    <h2>Cloud Platforms</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Containers/README.md" class="card">
-    <h2>🐳Containers</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Databases/README.md" class="card">
-    <h2>Databases</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Data-Streaming/README.md" class="card">
-    <h2>Data Streaming</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../DevOps/README.md" class="card">
-    <h2>DevOps</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../GitOps/README.md" class="card">
-    <h2>GitOps</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../How-To-Guides/README.md" class="card">
-    <h2>How-To Guides</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Images/README.md" class="card">
-    <h2>Images</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Infrastructure-Provisioning/README.md" class="card">
-    <h2>Infrastructure Provisioning</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Interview-Questions/README.md" class="card">
-    <h2>Interview Questions</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Linux/README.md" class="card">
-    <h2>🐧 Linux</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Networking/README.md" class="card">
-    <h2>Networking</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Observability/README.md" class="card">
-    <h2>Observability</h2> 
-  </a>
-
-  <a href="./pages/viewer.html?file=../Package-Managers/README.md" class="card">
-    <h2>Package Managers</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Programming/README.md" class="card">
-    <h2>Programming</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Projects/README.md" class="card">
-    <h2>Projects</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Scripting/README.md" class="card">
-    <h2>Scripting</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Security/README.md" class="card">
-    <h2>Security</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Servers/README.md" class="card">
-    <h2>Servers</h2>
-  </a>
-
-  <a href="./pages/viewer.html?file=../Version-Control/README.md" class="card">
-    <h2>Version Control</h2>
-  </a>
- 
-  </section>
-<footer>
-  Created by Narendra |
-  <a href="#">GitHub</a> |
-  <a href="#">LinkedIn</a>
-</footer>
+  <footer>
+    <span>Created by Narendra</span>
+    <a href="https://github.com/narendra09-devops" target="_blank" rel="noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+  </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>

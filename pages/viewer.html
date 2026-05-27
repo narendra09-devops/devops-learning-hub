@@ -1,250 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>DevOps Learning Hub</title>
-
-  <!-- Markdown Parser -->
+  <title>DevOps Learning Hub Viewer</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
   <style>
-
-    *{
-      box-sizing:border-box;
+    :root {
+      --ink: #18212f;
+      --muted: #607084;
+      --line: #dbe3ed;
+      --paper: #ffffff;
+      --soft: #f5f8fb;
+      --navy: #12324a;
+      --teal: #168a8a;
+      --green: #3d8b57;
+      --amber: #b7791f;
+      --rose: #b54763;
+      --blue: #2f6fbc;
+      --shadow: 0 16px 42px rgba(27, 39, 54, 0.12);
     }
 
-    body{
-      background:#f4f4f4;
-      margin:0;
-      padding:40px 20px;
-      font-family:Arial, sans-serif;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
     }
 
-    .container{
-      max-width:1000px;
-      margin:auto;
-      background:#ffffff;
-      padding:40px;
-      border-radius:12px;
-      box-shadow:0 0 15px rgba(0,0,0,0.1);
+    a { color: inherit; text-decoration: none; }
+
+    .page-header {
+      color: #ffffff;
+      background: linear-gradient(120deg, #12324a, #168a8a 54%, #3d8b57);
+      padding: 22px clamp(18px, 4vw, 58px) 64px;
     }
 
-    h1,h2,h3,h4{
-      color:#111827;
-      margin-top:25px;
+    .topbar,
+    .layout {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
     }
 
-    p{
-      line-height:1.8;
-      color:#333;
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    img{
-      max-width:100%;
-      border-radius:10px;
-      margin-top:15px;
-      margin-bottom:15px;
+    .brand,
+    .back-link,
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
     }
 
-    pre{
-      background:#111827;
-      color:#ffffff;
-      padding:15px;
-      overflow:auto;
-      border-radius:8px;
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.32);
     }
 
-    code{
-      background:#eeeeee;
-      padding:2px 5px;
-      border-radius:4px;
-      font-family:Consolas, monospace;
+    .repo-link,
+    .back-link {
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 8px;
+      padding: 10px 13px;
     }
 
-    pre code{
-      background:none;
-      padding:0;
-      color:#ffffff;
+    .folder-hero {
+      width: min(1180px, calc(100% - 36px));
+      margin: 54px auto 0;
     }
 
-    a{
-      color:#2563eb;
-      text-decoration:none;
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #c7f4ed;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    a:hover{
-      text-decoration:underline;
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1;
+      letter-spacing: 0;
     }
 
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:20px;
+    .folder-hero p {
+      max-width: 780px;
+      margin: 0;
+      color: #edf9fb;
+      font-size: 18px;
+      line-height: 1.65;
     }
 
-    table, th, td{
-      border:1px solid #ddd;
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+      gap: 22px;
+      margin-top: -34px;
+      padding-bottom: 44px;
     }
 
-    th, td{
-      padding:12px;
-      text-align:left;
+    .panel,
+    .content {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
     }
 
-    blockquote{
-      border-left:4px solid #2563eb;
-      padding-left:15px;
-      color:#555;
-      margin-left:0;
+    .panel {
+      align-self: start;
+      padding: 18px;
+      position: sticky;
+      top: 18px;
     }
 
-    hr{
-      border:none;
-      border-top:1px solid #ddd;
-      margin:30px 0;
+    .panel h2,
+    .content h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
     }
 
-    ul li{
-      margin-bottom:8px;
+    .folder-search {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    .error{
-      background:#fff0f0;
-      color:#dc2626;
-      padding:20px;
-      border-radius:8px;
-      border:1px solid #fecaca;
+    .folder-search input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 13px;
+      font: inherit;
+      outline: none;
     }
 
-    .loading{
-      text-align:center;
-      font-size:18px;
-      color:#555;
+    .folder-search input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(22, 138, 138, 0.14);
     }
 
+    .file-list {
+      display: grid;
+      gap: 10px;
+      max-height: 68vh;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .file-link {
+      display: grid;
+      gap: 5px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdff;
+    }
+
+    .file-link:hover,
+    .file-link:focus-visible {
+      border-color: rgba(22, 138, 138, 0.5);
+      background: #f2fbfa;
+    }
+
+    .file-title {
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .file-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .content {
+      min-width: 0;
+      padding: clamp(20px, 4vw, 42px);
+    }
+
+    .markdown h1,
+    .markdown h2,
+    .markdown h3,
+    .markdown h4 {
+      color: var(--ink);
+      line-height: 1.18;
+    }
+
+    .markdown h1 { font-size: clamp(30px, 5vw, 46px); }
+    .markdown h2 { margin-top: 34px; }
+
+    .markdown p,
+    .markdown li {
+      color: #334155;
+      line-height: 1.8;
+    }
+
+    .markdown a {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .markdown img {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+
+    .markdown pre {
+      overflow: auto;
+      padding: 16px;
+      color: #ffffff;
+      background: #111827;
+      border-radius: 8px;
+    }
+
+    .markdown code {
+      background: #eef2f7;
+      border-radius: 6px;
+      padding: 2px 5px;
+      font-family: Consolas, monospace;
+    }
+
+    .markdown pre code {
+      background: transparent;
+      padding: 0;
+      color: #ffffff;
+    }
+
+    .markdown table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      overflow: auto;
+    }
+
+    .markdown th,
+    .markdown td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+    }
+
+    .notice,
+    .loading {
+      padding: 16px;
+      border-radius: 8px;
+      background: #f2fbfa;
+      border: 1px solid rgba(22, 138, 138, 0.22);
+      color: #275b5a;
+    }
+
+    .error {
+      background: #fff5f5;
+      border-color: #fecaca;
+      color: #b42318;
+    }
+
+    @media (max-width: 860px) {
+      .topbar,
+      .layout {
+        align-items: stretch;
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+      }
+
+      .panel {
+        position: static;
+      }
+
+      .file-list {
+        max-height: none;
+      }
+    }
   </style>
 </head>
-
 <body>
+  <header class="page-header">
+    <nav class="topbar" aria-label="Viewer navigation">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">DL</span>
+        <span>DevOps Learning Hub</span>
+      </a>
+      <a class="repo-link" href="https://github.com/narendra09-devops/devops-learning-hub" target="_blank" rel="noreferrer">GitHub Repo</a>
+    </nav>
 
-  <div class="container" id="content">
-    <div class="loading">Loading README...</div>
-  </div>
+    <section class="folder-hero">
+      <p class="eyebrow">Folder browser</p>
+      <h1 id="pageTitle">Loading...</h1>
+      <p id="pageSummary">Browse README content, subfolders, markdown notes, PDFs, images, and project files from this repository.</p>
+    </section>
+  </header>
 
-<script>
-
-  const content = document.getElementById("content");
-
-  const params = new URLSearchParams(window.location.search);
-
-  let file = params.get("file");
-
-  /*
-    NO FILE PROVIDED
-  */
-
-  if (!file) {
-
-    content.innerHTML = `
-      <div class="error">
-        <h2>No README File Specified</h2>
-        <p>Please provide a valid README.md file path.</p>
+  <main class="layout">
+    <aside class="panel" aria-label="Folder contents">
+      <a class="back-link" href="../index.html">Back to topics</a>
+      <hr />
+      <h2>Folder contents</h2>
+      <label class="folder-search" for="folderSearch">
+        Search inside folder
+        <input type="search" id="folderSearch" placeholder="Filter files and folders..." autocomplete="off" />
+      </label>
+      <div class="file-list" id="fileList">
+        <div class="loading">Loading files...</div>
       </div>
-    `;
+    </aside>
 
-  } else {
+    <article class="content">
+      <div id="content" class="markdown">
+        <div class="loading">Loading content...</div>
+      </div>
+    </article>
+  </main>
 
-    /*
-      FIX PATH ISSUES
-    */
+  <script>
+    const owner = "narendra09-devops";
+    const repo = "devops-learning-hub";
+    const branch = "main";
+    const repoBasePath = "/devops-learning-hub/";
+    const githubTreeUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
+    const rawBaseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/`;
 
-    file = decodeURIComponent(file).trim();
+    const params = new URLSearchParams(window.location.search);
+    const pageTitle = document.getElementById("pageTitle");
+    const pageSummary = document.getElementById("pageSummary");
+    const folderSearch = document.getElementById("folderSearch");
+    const fileList = document.getElementById("fileList");
+    const content = document.getElementById("content");
 
-    // Remove ../ from beginning
-    file = file.replace(/^(\.\.\/)+/, "");
+    let currentFolder = cleanPath(params.get("folder") || "");
+    let currentFile = cleanPath(params.get("file") || "");
+    let folderItems = [];
 
-    // Fix lowercase readme
-    file = file.replace(/readme\.md$/i, "README.md");
+    if (!currentFolder && currentFile) {
+      currentFile = currentFile.replace(/\/README\.md$/i, "/README.md");
+      currentFolder = currentFile.replace(/\/README\.md$/i, "");
+    }
 
-    /*
-      FINAL GITHUB PAGES PATH
-    */
+    if (!currentFolder) {
+      currentFolder = "README.md";
+      currentFile = "README.md";
+    }
 
-    const finalPath = "/" + "devops-learning-hub/" + file;
+    if (!currentFile) {
+      currentFile = currentFolder === "README.md" ? "README.md" : `${currentFolder}/README.md`;
+    }
 
-    console.log("Loading File:", finalPath);
+    initializeViewer();
 
-    /*
-      FETCH README
-    */
+    folderSearch.addEventListener("input", () => renderFileList(folderSearch.value));
 
-    fetch(finalPath)
+    async function initializeViewer() {
+      const displayName = titleFromPath(currentFolder === "README.md" ? "Repository README" : currentFolder);
+      pageTitle.textContent = displayName;
+      pageSummary.textContent = currentFolder === "README.md"
+        ? "Start with the main repository README, then jump into any topic folder from the homepage."
+        : `Explore notes, nested folders, PDFs, images, and project files inside ${displayName}.`;
 
-      .then(response => {
+      await Promise.all([loadMarkdown(currentFile), loadFolderTree(currentFolder)]);
+    }
 
+    async function loadMarkdown(path) {
+      content.innerHTML = `<div class="loading">Loading ${escapeHtml(path)}...</div>`;
+      const candidates = path === "README.md"
+        ? [`${repoBasePath}README.md`, `${rawBaseUrl}README.md`]
+        : [`${repoBasePath}${path}`, `${rawBaseUrl}${path}`];
+
+      for (const url of candidates) {
+        try {
+          const response = await fetch(url);
+          if (response.ok) {
+            const markdown = await response.text();
+            content.innerHTML = markdown.trim()
+              ? marked.parse(markdown)
+              : `<div class="notice">This file is empty.</div>`;
+            return;
+          }
+        } catch (error) {
+          console.warn("Content fetch failed", url, error);
+        }
+      }
+
+      content.innerHTML = `
+        <div class="notice error">
+          <h2>Content not available</h2>
+          <p>The selected README or file could not be loaded yet. If this was recently pushed, GitHub Pages may still be updating.</p>
+          <p><strong>Path:</strong> ${escapeHtml(path)}</p>
+        </div>
+      `;
+    }
+
+    async function loadFolderTree(folder) {
+      try {
+        const response = await fetch(githubTreeUrl);
         if (!response.ok) {
-          throw new Error("README.md file not found");
+          throw new Error("GitHub API request failed");
         }
 
-        return response.text();
-
-      })
-
-      .then(markdown => {
-
-        if (!markdown.trim()) {
-
-          content.innerHTML = `
-            <div class="error">
-              <h2>README.md is Empty</h2>
-            </div>
-          `;
-
-          return;
-        }
-
-        content.innerHTML = marked.parse(markdown);
-
-      })
-
-      .catch(error => {
-
-        content.innerHTML = `
-          <div class="error">
-            <h2>Error Loading README</h2>
-
-            <p>${error.message}</p>
-
-            <hr>
-
-            <p><strong>Attempted Path:</strong></p>
-
-            <code>${finalPath}</code>
-
-            <hr>
-
-            <p><strong>Possible Reasons:</strong></p>
-
-            <ul>
-              <li>README.md file missing</li>
-              <li>Wrong folder name</li>
-              <li>Filename case issue (README.md)</li>
-              <li>GitHub Pages cache delay</li>
-            </ul>
-
+        const data = await response.json();
+        folderItems = buildFolderItems(data.tree || [], folder);
+        renderFileList();
+      } catch (error) {
+        fileList.innerHTML = `
+          <div class="notice error">
+            Folder list is not available right now. You can still read the README content.
           </div>
         `;
-
         console.error(error);
+      }
+    }
 
+    function buildFolderItems(tree, folder) {
+      const normalizedFolder = folder === "README.md" ? "" : folder.replace(/\/$/, "");
+      const prefix = normalizedFolder ? `${normalizedFolder}/` : "";
+      const direct = new Map();
+
+      tree.forEach((item) => {
+        if (!item.path.startsWith(prefix) || item.path === normalizedFolder) return;
+        const rest = item.path.slice(prefix.length);
+        if (!rest || rest === "README.md") return;
+        const [first] = rest.split("/");
+        const directPath = prefix + first;
+        const existing = direct.get(directPath);
+        const type = rest.includes("/") ? "folder" : item.type === "tree" ? "folder" : "file";
+
+        if (!existing || existing.type !== "folder") {
+          direct.set(directPath, {
+            name: first,
+            path: directPath,
+            type,
+            extension: type === "file" ? extensionFromName(first) : "folder"
+          });
+        }
       });
 
-  }
+      return Array.from(direct.values()).sort((a, b) => {
+        if (a.type !== b.type) return a.type === "folder" ? -1 : 1;
+        return a.name.localeCompare(b.name);
+      });
+    }
 
-</script>
+    function renderFileList(filter = "") {
+      const query = filter.trim().toLowerCase();
+      const matches = folderItems.filter((item) => [item.name, item.path, item.extension].join(" ").toLowerCase().includes(query));
 
+      if (!matches.length) {
+        fileList.innerHTML = `<div class="notice">No files or folders match your search.</div>`;
+        return;
+      }
+
+      fileList.innerHTML = matches.map((item) => {
+        const isFolder = item.type === "folder";
+        const href = isFolder
+          ? `viewer.html?folder=${encodeURIComponent(item.path)}`
+          : fileHref(item.path);
+        const meta = isFolder ? "Folder" : item.extension.toUpperCase() || "File";
+        return `
+          <a class="file-link" href="${href}">
+            <span class="file-title">${escapeHtml(item.name)}</span>
+            <span class="file-meta">${meta}</span>
+          </a>
+        `;
+      }).join("");
+    }
+
+    function fileHref(path) {
+      if (/\.md$/i.test(path)) {
+        return `viewer.html?folder=${encodeURIComponent(parentFolder(path))}&file=${encodeURIComponent(path)}`;
+      }
+
+      if (/\.(png|jpe?g|gif|svg|webp|pdf)$/i.test(path)) {
+        return `${repoBasePath}${path}`;
+      }
+
+      return `${rawBaseUrl}${path}`;
+    }
+
+    function cleanPath(value) {
+      return decodeURIComponent(value || "")
+        .trim()
+        .replace(/^\.\.\//, "")
+        .replace(/^\//, "");
+    }
+
+    function parentFolder(path) {
+      const parts = path.split("/");
+      parts.pop();
+      return parts.join("/") || "README.md";
+    }
+
+    function titleFromPath(path) {
+      return path
+        .split("/")
+        .filter(Boolean)
+        .pop()
+        .replace(/[-_]/g, " ")
+        .replace(/\b\w/g, (letter) => letter.toUpperCase());
+    }
+
+    function extensionFromName(name) {
+      const match = name.match(/\.([^.]+)$/);
+      return match ? match[1] : "file";
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char]));
+    }
+  </script>
 </body>
 </html>
