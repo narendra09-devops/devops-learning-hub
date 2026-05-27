@@ -33,21 +33,56 @@
 
     <section class="hero hero-home">
       <div class="hero-copy">
-        <p class="eyebrow">DevOps | Cloud | Linux | Kubernetes | CI/CD</p>
-        <h1>Learn DevOps & Cloud Engineering with Real Projects</h1>
-        <p>Beginner-friendly roadmaps, practical labs, interview preparation, and real-world cloud/DevOps tasks organized in one learning hub.</p>
+        <p class="eyebrow hero-eyebrow">DevOps | Cloud | Linux | Kubernetes | CI/CD</p>
+        <h1><span>Learn DevOps</span> <span>& Cloud Engineering</span> <span>with Real Projects</span></h1>
+        <p class="hero-lead">Beginner-friendly roadmaps, practical labs, interview preparation, and real-world cloud/DevOps tasks organized in one colorful learning hub.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="roadmap.html">Start Roadmap</a>
           <a class="btn btn-secondary" href="projects.html">Practice Projects</a>
+          <a class="btn btn-glass" href="#folder-library">Explore Folders</a>
         </div>
       </div>
       <div class="hero-media">
-        <img src="assets/devops-banner.gif" alt="Narendra DevOps Learning Hub animated banner" />
+        <div class="personal-banner" aria-label="Narendra DevOps and Cloud Engineer banner">
+          <div class="banner-grid"></div>
+          <div class="banner-content">
+            <img class="banner-logo" src="assets/narendra-np-logo.png" alt="Narendra Pratap Singh DevOps logo" />
+            <p>DevOps Learning Hub</p>
+            <h2>Build. Automate. Deploy.</h2>
+            <span>Narendra Pratap Singh</span>
+            <small>DevOps & Cloud Engineer</small>
+            <div class="banner-tags">
+              <b>AWS</b>
+              <b>Linux</b>
+              <b>Docker</b>
+              <b>Kubernetes</b>
+              <b>Terraform</b>
+              <b>CI/CD</b>
+            </div>
+          </div>
+          <div class="banner-photo-wrap">
+            <img class="banner-photo" src="assets/narendra-banner-photo.jpeg" alt="Narendra portrait" />
+          </div>
+        </div>
       </div>
     </section>
   </header>
 
   <main>
+    <section class="section folder-library" id="folder-library">
+      <div class="section-heading section-heading-row">
+        <div>
+          <p class="eyebrow">Learning folder library</p>
+          <h2>Open every DevOps topic folder</h2>
+        </div>
+        <label class="search-box">
+          <span>Search folders</span>
+          <input type="search" placeholder="Search AWS, Linux, Images..." data-filter-input="folder-grid" />
+        </label>
+      </div>
+      <div class="folder-grid" id="folder-grid" data-render="folder-library"></div>
+    </section>
+
     <section class="section intro-section">
       <div class="section-heading">
         <p class="eyebrow">What this site gives you</p>
@@ -122,8 +157,18 @@
   </main>
 
   <footer class="footer">
-    <p>Created by Narendra | DevOps & Cloud Engineer Learning Hub</p>
-    <div>
+    <div class="footer-brand">
+      <span class="brand-mark">DL</span>
+      <div>
+        <strong>Narendra DevOps Learning Hub</strong>
+        <p>Real projects, roadmap topics, interview preparation, and cloud learning references.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="projects.html">Projects</a>
+      <a href="interview.html">Interview</a>
+      <a href="videos.html">Videos</a>
       <a href="https://github.com/narendra09-devops" target="_blank" rel="noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/narendra09-devops" target="_blank" rel="noreferrer">LinkedIn</a>
     </div>

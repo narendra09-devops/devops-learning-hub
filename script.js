@@ -15,6 +15,33 @@ const roadmap = [
   { title: "Interview preparation", folder: "Interview-Questions", icon: "IQ", color: "#b54763", text: "Prepare tool questions, troubleshooting stories, and scenario-based answers." }
 ];
 
+const folderCatalog = [
+  ["Architecture Diagrams", "AD", "Design references, system diagrams, and architecture notes.", "Architecture-Diagrams", "#2f6fbc"],
+  ["Certifications", "CE", "Certification paths, exam notes, and preparation material.", "Certifications", "#33895d"],
+  ["Cheatsheets", "CS", "Fast command references and quick lookup guides.", "Cheatsheets", "#c27a17"],
+  ["CI/CD Pipelines", "CI", "Jenkins, GitHub Actions, GitLab CI, CircleCI, and Travis CI.", "CI-CD-Pipelines", "#b54763"],
+  ["Cloud Platforms", "CL", "AWS, Azure, GCP, and DigitalOcean learning notes.", "Cloud-Platforms", "#168a8a"],
+  ["Containers", "CO", "Docker, Kubernetes, Minikube, and container projects.", "Containers", "#2f6fbc"],
+  ["Data Streaming", "DS", "Kafka and streaming platform concepts.", "Data-Streaming", "#c27a17"],
+  ["Databases", "DB", "Database learning notes for DevOps workflows.", "Databases", "#33895d"],
+  ["DevOps", "DO", "Core DevOps concepts, CNCF notes, and fundamentals.", "DevOps", "#168a8a"],
+  ["GitOps", "GO", "Argo CD, sync strategies, app-of-apps, and GitOps practices.", "GitOps", "#b54763"],
+  ["How-To Guides", "HT", "Step-by-step installation and setup guides.", "How-To-Guides", "#2f6fbc"],
+  ["Images", "IM", "Diagrams and reference images used across notes.", "Images", "#33895d"],
+  ["Infrastructure Provisioning", "IP", "Terraform, Ansible, CloudFormation, Chef, and Puppet.", "Infrastructure-Provisioning", "#c27a17"],
+  ["Interview Questions", "IQ", "DevOps interview questions, notes, and preparation lists.", "Interview-Questions", "#b54763"],
+  ["Linux", "LX", "Linux commands, OS concepts, processes, files, and shell scripting.", "Linux", "#168a8a"],
+  ["Networking", "NW", "Routing, switching, protocols, DNS, and troubleshooting.", "Networking", "#2f6fbc"],
+  ["Observability", "OB", "Monitoring, logging, tracing, Prometheus, Grafana, Loki, and Jaeger.", "Observability", "#33895d"],
+  ["Package Managers", "PM", "Helm and Kubernetes package management notes.", "Package-Managers", "#c27a17"],
+  ["Programming", "PR", "Programming references useful for automation work.", "Programming", "#b54763"],
+  ["Projects", "PJ", "Hands-on projects and practice ideas.", "Projects", "#168a8a"],
+  ["Scripting", "SC", "Scripting notes and automation references.", "Scripting", "#2f6fbc"],
+  ["Security", "SE", "Security practices, hardening, and DevSecOps references.", "Security", "#33895d"],
+  ["Servers", "SV", "Apache, hosting, headers, SSL, caching, and operations.", "Servers", "#c27a17"],
+  ["Version Control", "VC", "Git commands, workflows, and version control references.", "Version-Control", "#b54763"]
+];
+
 const resources = [
   ["Kubernetes", "Official Kubernetes Docs", "https://kubernetes.io/docs/"],
   ["Containers", "Docker Docs", "https://docs.docker.com/"],
@@ -279,6 +306,7 @@ function renderAll() {
   document.querySelectorAll("[data-render]").forEach((container) => {
     const type = container.dataset.render;
     if (type === "roadmap-preview") renderRoadmapPreview(container);
+    if (type === "folder-library") renderFolderLibrary(container);
     if (type === "roadmap-full") renderRoadmapFull(container);
     if (type === "featured-projects") renderProjects(container, projects.slice(0, 4));
     if (type === "projects") renderProjects(container, projects);
@@ -288,6 +316,16 @@ function renderAll() {
     if (type === "resume") renderSimpleCards(container, resumeItems, "resume-card");
     if (type && type.endsWith("-labs")) renderSimpleCards(container, labs[type.replace("-labs", "-labs")] || labs[type.replace("-labs", "")] || labs[type], "lab-card");
   });
+}
+
+function renderFolderLibrary(container) {
+  container.innerHTML = folderCatalog.map(([title, icon, text, folder, color]) => `
+    <a class="folder-card filter-item" href="pages/viewer.html?folder=${encodeURIComponent(folder)}" style="--card-color: ${color}">
+      <span class="topic-top"><span class="topic-icon">${icon}</span><span class="card-meta">Open folder</span></span>
+      <span><h3>${title}</h3><p>${text}</p></span>
+      <span class="card-link">View notes</span>
+    </a>
+  `).join("");
 }
 
 function renderRoadmapPreview(container) {
