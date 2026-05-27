@@ -442,6 +442,7 @@
     function buildFolderItems(tree, folder) {
       const normalizedFolder = folder === "README.md" ? "" : folder.replace(/\/$/, "");
       const prefix = normalizedFolder ? `${normalizedFolder}/` : "";
+      const isRootFolder = !normalizedFolder;
       const direct = new Map();
 
       tree.forEach((item) => {
@@ -452,6 +453,8 @@
         const directPath = prefix + first;
         const existing = direct.get(directPath);
         const type = rest.includes("/") ? "folder" : item.type === "tree" ? "folder" : "file";
+
+        if (isRootFolder && !isPublicRootItem(first, type)) return;
 
         if (!existing || existing.type !== "folder") {
           direct.set(directPath, {
@@ -467,6 +470,11 @@
         if (a.type !== b.type) return a.type === "folder" ? -1 : 1;
         return a.name.localeCompare(b.name);
       });
+    }
+
+    function isPublicRootItem(name, type) {
+      if (type !== "folder") return false;
+      return ![".git", "assets", "pages"].includes(name);
     }
 
     function renderFileList(filter = "") {
