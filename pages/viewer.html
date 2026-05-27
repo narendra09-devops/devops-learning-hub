@@ -474,7 +474,33 @@
 
     function isPublicRootItem(name, type) {
       if (type !== "folder") return false;
-      return ![".git", "assets", "pages"].includes(name);
+      const topicFolders = [
+        "Architecture-Diagrams",
+        "Certifications",
+        "Cheatsheets",
+        "CI-CD-Pipelines",
+        "Cloud-Platforms",
+        "Containers",
+        "Data-Streaming",
+        "Databases",
+        "DevOps",
+        "GitOps",
+        "How-To-Guides",
+        "Images",
+        "Infrastructure-Provisioning",
+        "Interview-Questions",
+        "Linux",
+        "Networking",
+        "Observability",
+        "Package-Managers",
+        "Programming",
+        "Projects",
+        "Scripting",
+        "Security",
+        "Servers",
+        "Version-Control"
+      ];
+      return topicFolders.includes(name);
     }
 
     function renderFileList(filter = "") {
