@@ -14,16 +14,14 @@
         <span>DevOps Learning Hub</span>
       </a>
       <div class="nav-links">
-        <a class="github-link" href="https://github.com/narendra09-devops/" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="github-link" href="https://www.linkedin.com/in/narendra09-devops" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="nav-button nav-github" href="https://github.com/narendra09-devops/" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="nav-button nav-linkedin" href="https://www.linkedin.com/in/narendra09-devops" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </nav>
 
-    <section class="hero hero-banner" aria-label="DevOps Learning Hub banner">
-      <p class="eyebrow sr-only">Cloud | Linux | Kubernetes | CI/CD | Networking</p>
-      <h1 class="sr-only">DevOps Learning Hub</h1>
-      <p class="hero-copy sr-only">A practical library of notes, diagrams, commands, projects, and interview preparation for DevOps learners and engineers.</p>
-      <div class="hero-actions banner-actions">
+    <section class="hero" aria-label="DevOps Learning Hub banner">
+      <img class="hero-image" src="assets/devops-banner.gif" alt="DevOps Learning Hub banner for Narendra Pratap Singh" />
+      <div class="hero-actions">
         <a class="primary-button" href="#topics">Explore Topics</a>
         <a class="secondary-button" href="./pages/viewer.html?folder=README.md">View Main README</a>
       </div>
@@ -34,12 +32,29 @@
     <section class="toolbar" aria-label="Topic search">
       <div>
         <p class="section-kicker">Browse library</p>
-        <h2 id="topics">Choose a topic folder</h2>
+        <h1 id="topics">Choose a topic folder</h1>
       </div>
       <label class="search-box" for="searchInput">
         <span>Search</span>
         <input type="search" id="searchInput" placeholder="Search folders, tools, or topics..." autocomplete="off" />
       </label>
+    </section>
+
+    <section class="learning-links" aria-labelledby="learningTitle">
+      <div class="section-heading">
+        <p class="section-kicker">Important learning websites</p>
+        <h2 id="learningTitle">DevOps, cloud, Kubernetes, CI/CD, and monitoring references</h2>
+      </div>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://kubernetes.io/docs/" target="_blank" rel="noreferrer"><span>Kubernetes</span><strong>Official Kubernetes Docs</strong></a>
+        <a class="resource-card" href="https://docs.docker.com/" target="_blank" rel="noreferrer"><span>Containers</span><strong>Docker Docs</strong></a>
+        <a class="resource-card" href="https://developer.hashicorp.com/terraform/docs" target="_blank" rel="noreferrer"><span>IaC</span><strong>Terraform Docs</strong></a>
+        <a class="resource-card" href="https://docs.github.com/en/actions" target="_blank" rel="noreferrer"><span>CI/CD</span><strong>GitHub Actions Docs</strong></a>
+        <a class="resource-card" href="https://learn.microsoft.com/en-us/azure/devops/" target="_blank" rel="noreferrer"><span>Cloud DevOps</span><strong>Azure DevOps Docs</strong></a>
+        <a class="resource-card" href="https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/introduction-to-devops.html" target="_blank" rel="noreferrer"><span>AWS</span><strong>DevOps on AWS</strong></a>
+        <a class="resource-card" href="https://www.jenkins.io/doc/" target="_blank" rel="noreferrer"><span>Automation</span><strong>Jenkins Docs</strong></a>
+        <a class="resource-card" href="https://prometheus.io/docs/tutorials/getting_started/" target="_blank" rel="noreferrer"><span>Monitoring</span><strong>Prometheus Guide</strong></a>
+      </div>
     </section>
 
     <section class="cards-container" id="cardsContainer" aria-live="polite"></section>
