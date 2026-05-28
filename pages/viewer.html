@@ -456,20 +456,43 @@
       tree.forEach((item) => {
         if (!item.path.startsWith(prefix) || item.path === normalizedFolder) return;
         const rest = item.path.slice(prefix.length);
-        if (!rest || rest === "README.md") return;
+        if (!rest) return;
         const [first] = rest.split("/");
+        const isNested = rest.includes("/");
         const directPath = prefix + first;
+        const directType = isNested ? "folder" : item.type === "tree" ? "folder" : "file";
+
+        if (isRootFolder && !isPublicRootItem(first, directType)) return;
+
+        if (isNested) {
+          const existing = direct.get(directPath);
+          if (!existing || existing.type !== "folder") {
+            direct.set(directPath, {
+              name: first,
+              path: directPath,
+              type: "folder",
+              extension: "folder"
+            });
+          }
+        }
+
+        if (item.type !== "tree") {
+          direct.set(item.path, {
+            name: rest,
+            path: item.path,
+            type: "file",
+            extension: extensionFromName(item.path)
+          });
+          return;
+        }
+
         const existing = direct.get(directPath);
-        const type = rest.includes("/") ? "folder" : item.type === "tree" ? "folder" : "file";
-
-        if (isRootFolder && !isPublicRootItem(first, type)) return;
-
         if (!existing || existing.type !== "folder") {
           direct.set(directPath, {
             name: first,
             path: directPath,
-            type,
-            extension: type === "file" ? extensionFromName(first) : "folder"
+            type: directType,
+            extension: directType === "file" ? extensionFromName(first) : "folder"
           });
         }
       });
@@ -484,6 +507,7 @@
       if (type !== "folder") return false;
       const topicFolders = [
         "Architecture-Diagrams",
+        "assets",
         "Certifications",
         "Cheatsheets",
         "CI-CD-Pipelines",

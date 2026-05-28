@@ -17,6 +17,7 @@ const roadmap = [
 
 const folderCatalog = [
   ["Architecture Diagrams", "AD", "Design references, system diagrams, and architecture notes.", "Architecture-Diagrams", "#2f6fbc"],
+  ["Assets", "AS", "Website images, icons, profile photos, and banner files used by GitHub Pages.", "assets", "#168a8a"],
   ["Certifications", "CE", "Certification paths, exam notes, and preparation material.", "Certifications", "#33895d"],
   ["Cheatsheets", "CS", "Fast command references and quick lookup guides.", "Cheatsheets", "#c27a17"],
   ["CI/CD Pipelines", "CI", "Jenkins, GitHub Actions, GitLab CI, CircleCI, and Travis CI.", "CI-CD-Pipelines", "#b54763"],
