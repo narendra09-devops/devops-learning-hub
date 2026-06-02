@@ -7,7 +7,7 @@ const roadmap = [
   { title: "AWS core services", folder: "Cloud-Platforms/AWS", icon: "AWS", color: "#2f6fbc", text: "EC2, S3, IAM, VPC, CloudFront, Route 53, CloudWatch, and backup services." },
   { title: "Docker", folder: "Containers/Docker", icon: "DK", color: "#168a8a", text: "Images, containers, Dockerfile, volumes, networks, registries, and compose basics." },
   { title: "Kubernetes", folder: "Containers/Kubernetes", icon: "K8S", color: "#2f6fbc", text: "Pods, deployments, services, config maps, secrets, ingress, storage, and scaling." },
-  { title: "Terraform", folder: "Infrastructure-Provisioning/Infrastructure-as-Code/Terraform", icon: "TF", color: "#7c5cc4", text: "Providers, resources, variables, state, modules, plans, and remote backends." },
+  { title: "Terraform", folder: "Infrastructure-Provisioning/AWS-Terraform", icon: "TF", color: "#7c5cc4", text: "AWS Terraform learning path covering basics, modern labs, modules, networking, advanced topics and real-world projects."},
   { title: "CI/CD", folder: "CI-CD-Pipelines", icon: "CI", color: "#b54763", text: "Build, test, scan, artifact, deploy, rollback, approvals, and secrets." },
   { title: "Monitoring/logging", folder: "Observability", icon: "OB", color: "#3d8b57", text: "Metrics, logs, dashboards, alerts, SLOs, incident notes, and CloudWatch." },
   { title: "Security basics", folder: "Security", icon: "SC", color: "#b7791f", text: "IAM least privilege, patching, secrets, TLS, vulnerability scans, and audit logs." },
@@ -114,14 +114,78 @@ const labs = {
     ["Rollback and scaling", "Scale deployments and roll back failed versions."]
   ],
   "terraform-labs": [
-    ["Provider setup", "Configure AWS provider, variables, outputs, and formatting."],
-    ["EC2 with Terraform", "Provision EC2, security group, key pair, and user data."],
-    ["S3 backend", "Store state remotely and understand locking requirements."],
-    ["VPC module", "Create reusable VPC/subnet module structure."],
-    ["Plan review", "Practice terraform fmt, validate, plan, apply, and destroy."],
-    ["State safety", "Inspect state, import resource, and avoid manual drift."],
-    ["Environment variables", "Use tfvars for dev/test/prod style configuration."]
+
+  ["00-Documentation",
+   "Terraform concepts, tutorials, AWS provider migration notes and learning guides."],
+
+  ["01-Legacy Training Labs",
+   "Terraform Basics, Variables, tfvars, Providers and Data Sources using older training patterns."],
+
+  ["02-Modern AWS Terraform Labs",
+   "Modern Terraform examples using AWS CLI authentication and provider best practices."],
+
+  ["IAM",
+   "Terraform IAM users, groups and policy management."] ,
+
+  ["EC2",
+   "Launch EC2 instances using Terraform with reusable infrastructure code."] ,
+
+  ["VPC",
+   "Build VPCs, subnets, route tables, internet gateways and networking components."] ,
+
+  ["EBS",
+   "Create and attach EBS volumes using Terraform."] ,
+
+  ["RDS",
+   "Provision and manage AWS RDS databases."] ,
+
+  ["Load Balancer",
+   "Create Application Load Balancers and related networking resources."] ,
+
+  ["IAM Role + S3 + EC2",
+   "Manage IAM roles and integrate EC2 access with S3."] ,
+
+  ["User Data",
+   "Automate server provisioning using EC2 user data scripts."] ,
+
+  ["Cloud Init",
+   "Provision infrastructure using Cloud-Init and Terraform together."] ,
+
+  ["Remote State",
+   "Manage Terraform state remotely with backend configuration and locking."] ,
+
+  ["Outputs",
+   "Use outputs to expose infrastructure information after deployment."] ,
+
+  ["Provision Software",
+   "Deploy and configure software automatically after infrastructure creation."] ,
+
+  ["03-Modules",
+   "Reusable Terraform modules and infrastructure design patterns."] ,
+
+  ["04-Network Modules",
+   "Advanced VPC networking modules, route tables, NAT gateways and subnet architecture."] ,
+
+  ["05-Advanced Terraform",
+   "Conditional statements, advanced expressions and automation techniques."] ,
+
+  ["06-Real World Projects",
+   "Production-ready Terraform projects based on real infrastructure scenarios."] ,
+
+  ["AWS EKS Cluster",
+   "Deploy and manage Kubernetes clusters using Terraform."] ,
+
+  ["ELK Stack Deployment",
+   "Provision Elasticsearch, Logstash and Kibana infrastructure using Terraform."] ,
+
+  ["Multi-Tier Web Application",
+   "Deploy complete multi-tier AWS architecture using Terraform modules."] ,
+
+  ["07-Project Structure",
+   "Production-ready Terraform repository structure for Development and Production environments."]
   ],
+
+
   "cicd-labs": [
     ["GitHub Actions build", "Trigger workflow on push and run lint/test steps."],
     ["Docker image pipeline", "Build and tag image, then push to registry."],
