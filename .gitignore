@@ -1,21 +1,26 @@
-# Node.js
-node_modules/
-
-# Python
-venv/
-__pycache__/
-
 # Terraform
 *.tfstate
+*.tfstate.*
 .terraform/
+.terraform.lock.hcl
 
-# Logs
-*.log
+# AWS
+.aws/
 
-# Environment files
-.env
+# Secrets
+*.pem
+*.key
 
-# Build folders
-dist/
-build/
+# Python
+__pycache__/
+*.pyc
+
+# Java
 *.class
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+wwwroot/lib/
